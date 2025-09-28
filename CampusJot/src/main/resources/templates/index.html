@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusJot - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+    <header>
+        <a th:href="@{/home}" class="logo">CampusJot</a>
+        <div class="auth-buttons">
+            <a th:href="@{/signin}" class="btn-login">Login</a>
+            <a th:href="@{/signup}" class="btn-signup">Sign Up</a>
+        </div>
+    </header>
+    <main>
+        <div class="hero-container">
+            <div class="decorative-pen">
+                <img th:src="@{/images/pen.png}" alt="Pen" class="hero-image pen" height="300" width="300">
+            </div>
+            <div class="hero-content">
+                <h1 class="hero-title">Collaborative Notes, Organized Campus Life</h1>
+                <p class="hero-subtitle">CampusJot: Where classes become collaborative, organized, and never missed</p>
+                <a th:href="@{/signup}" class="cta-button">Get Started for free</a>
+            </div>
+            <div class="decorative-notebook">
+                <img th:src="@{/images/book.png}" alt="Book" class="hero-image book" height="300" width="300">
+            </div>
+        </div>
+    </main>
+</body>
+</html>

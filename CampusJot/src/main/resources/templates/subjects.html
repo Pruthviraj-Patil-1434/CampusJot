@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusJot - Final Year Btech</title>
+<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+
+	<div class="alert-container">
+		<div th:if="${successMessage}" class="alert alert-success">
+			<span th:text="${successMessage}"></span> <span class="close-btn"
+				onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+		<div th:if="${errorMessage}" class="alert alert-danger">
+			<span th:text="${errorMessage}"></span> <span class="close-btn"
+				onclick="this.parentElement.style.display='none';">&times;</span>
+		</div>
+	</div>
+
+<style>
+.alert {
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid transparent;
+	border-radius: 4px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	position: relative;
+	animation: fadeIn 0.5s ease-out;
+	display: flex;
+	align-items: center;
+}
+
+.alert::before {
+	font-family: 'Font Awesome 6 Free';
+	font-weight: 900;
+	margin-right: 10px;
+}
+
+.alert-success {
+	color: #155724;
+	background-color: #d4edda;
+	border-color: #c3e6cb;
+}
+
+.alert-success::before {
+	content: "\f00c"; /* Checkmark icon */
+}
+
+.alert-danger {
+	color: #721c24;
+	background-color: #f8d7da;
+	border-color: #f5c6cb;
+}
+
+.alert-danger::before {
+	content: "\f00d"; /* 'X' icon */
+}
+
+.alert-container {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	z-index: 1050;
+	width: 300px;
+	max-width: 90%;
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.close-btn {
+	margin-left: auto;
+	font-weight: bold;
+	font-size: 20px;
+	line-height: 1;
+	color: inherit;
+	opacity: 0.6;
+	cursor: pointer;
+	transition: opacity 0.3s ease;
+}
+
+.close-btn:hover {
+	opacity: 1;
+}
+
+keyframes fadeIn {from { opacity:0;
+	transform: translateY(-20px);
+}
+
+to {
+	opacity: 1;
+	transform: translateY(0);
+	}
+}
+</style>
+	<div class="container">
+		<aside class="sidebar">
+			<a href="folders.html" class="logo">CampusJot</a>
+			<nav>
+				<ul class="menu">
+					<li><a href="folders.html">Folders</a></li>
+					<li><a href="group.html" class="active">Groups</a></li>
+				</ul>
+			</nav>
+		</aside>
+
+		<main class="main-content">
+			<header class="top-bar">
+				<div class="user-box">
+					<span class="username" th:text="${session.username}">user123</span>
+					<a th:href="@{/logout}" class="logout-btn">Log out</a>
+				</div>
+			</header>
+
+			<section class="page-header">
+				<h1 th:text="${gname}">Final Year Btech</h1>
+				<div class="actions">
+					<a href="#createFolderPopup" class="action-btn">Create Subject</a> <a
+						href="#addMemberPopup" class="action-btn">Add Member</a> <a
+						href="#memberListPopup" class="action-btn">Member List</a>
+				</div>
+			</section>
+
+			<section class="table-section">
+				<table>
+					<thead>
+						<tr>
+							<th>Subject Name</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="subject : ${subjects}">
+							<td th:text="${subject.subjectName}">Subject Name
+								Placeholder</td>
+							<td><a
+								th:href="@{/subjects/chapters/{sname}/{sid}(sname=${subject.subjectName}, sid=${subject.sid})}"
+								class="view-btn">View</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</section>
+		</main>
+	</div>
+
+	<div id="createFolderPopup" class="popup">
+		<div class="popup-content">
+			<a href="#" class="close">&times;</a>
+			<h2>Create Subject</h2>
+
+			<form
+				th:action="@{/group/{groupname}/create-subject(groupname=${grpname})}"
+				method="post">
+
+				<input type="text" name="subjectName"
+					placeholder="Enter subject name" required>
+
+				<button type="submit" class="popup-btn">Create</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="addMemberPopup" class="popup">
+		<div class="popup-content">
+			<a href="#" class="close">&times;</a>
+			<h2>Add Member</h2>
+			<form th:action="@{/group/join}" method="post">
+				<input type="text" name="uname" placeholder="Enter member Username">
+				<input type="hidden" name="gid" th:value="${gcode}">
+				<button class="popup-btn" type="submit">Add</button>
+			</form>
+		</div>
+	</div>
+
+	<div id="memberListPopup" class="popup">
+		<div class="popup-content">
+			<a href="#" class="close">&times;</a>
+			<h2>Member List</h2>
+			<ul th:if="${not #lists.isEmpty(contributors)}">
+				<li th:each="contributor : ${contributors}"
+					th:text="${contributor.email}">user@example.com</li>
+			</ul>
+			<p th:if="${#lists.isEmpty(contributors)}">No other members in
+				this group yet.</p>
+		</div>
+	</div>
+</body>
+</html>

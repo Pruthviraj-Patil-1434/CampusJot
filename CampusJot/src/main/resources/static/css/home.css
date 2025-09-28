@@ -1,0 +1,306 @@
+@charset "UTF-8";
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+.alert {
+  padding: 0.75rem 1.25rem;
+  margin-bottom: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  font-size: 1rem;
+}
+
+.alert-info {
+  color: #055160; /* Dark blue text for contrast */
+  background-color: #cff4fc; /* Light blue background */
+  border-color: #b6effb; /* Slightly darker blue border */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0b1120 0%, #1e1b4b 50%, #111827 100%);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+}
+
+.logo {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.logo-campus {
+    color: #f97316;
+}
+
+.logo-jot {
+    color: #ef4444;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.btn-login,
+.btn-signup {
+    padding: 12px 24px;
+    border: 1px solid #4b5563;
+    background: transparent;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.btn-login:hover,
+.btn-signup:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: #6b7280;
+}
+
+/* Main Content */
+main {
+    position: relative;
+    padding: 80px 32px;
+    text-align: center;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    flex-wrap: wrap;
+    gap: 60px;
+}
+
+/* === SIGNUP PAGE STYLING === */
+.illustration img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+}
+
+.signup-box {
+    background: #0f172a;
+    padding: 40px 32px;
+    border-radius: 16px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+.signup-box h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.signup-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.signup-box input[type="email"],
+.signup-box input[type="text"],
+.signup-box input[type="password"] {
+    padding: 14px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #1e293b;
+    color: white;
+    font-size: 16px;
+}
+
+.signup-box input::placeholder {
+    color: #9ca3af;
+}
+
+.signup-box label {
+    font-size: 14px;
+    color: #d1d5db;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.signup-box label a {
+    color: #3b82f6;
+    text-decoration: none;
+}
+
+.signup-box label a:hover {
+    text-decoration: underline;
+}
+
+.signup-box button.cta-button {
+    padding: 14px;
+    background: #2563eb;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.signup-box button.cta-button:hover {
+    background: #1d4ed8;
+}
+
+/* === HERO PAGE STYLING === */
+.hero-content {
+    flex: 1;
+    max-width: 800px;
+}
+
+.hero-title {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #fbbf24, #f97316, #fbbf24);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 32px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    color: #d1d5db;
+    margin-bottom: 48px;
+    line-height: 1.5;
+}
+
+.cta-button {
+    padding: 16px 32px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fbbf24;
+    background: transparent;
+    border: 2px solid #fbbf24;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+    background: #fbbf24;
+    color: #0f172a;
+}
+
+/* Decorative Elements */
+.decorative-pen {
+    position: absolute;
+    left: -100px;
+    top: 50%;
+    transform: translateY(-50%) rotate(-15deg);
+}
+
+.decorative-notebook {
+    position: absolute;
+    right: -80px;
+    top: 50%;
+    transform: translateY(-50%) rotate(12deg);
+}
+
+/* Background Circles */
+.bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+}
+
+.circle-1 {
+    width: 300px;
+    height: 300px;
+    background: rgba(59, 130, 246, 0.1);
+    top: 25%;
+    left: 33%;
+}
+
+.circle-2 {
+    width: 400px;
+    height: 400px;
+    background: rgba(168, 85, 247, 0.1);
+    bottom: 25%;
+    right: 33%;
+}
+
+.circle-3 {
+    width: 350px;
+    height: 350px;
+    background: rgba(249, 115, 22, 0.1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .decorative-pen,
+    .decorative-notebook {
+        display: none;
+    }
+
+    header {
+        padding: 16px 20px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .auth-buttons {
+        gap: 8px;
+    }
+
+    .btn-login,
+    .btn-signup {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .signup-box {
+        padding: 32px 24px;
+    }
+
+    .hero-container {
+        flex-direction: column;
+        gap: 32px;
+    }
+}

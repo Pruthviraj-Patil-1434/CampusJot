@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up - CampusJot</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <header>
+    <a th:href="@{/home}" class="logo">CampusJot</a>
+    <div class="auth-buttons">
+      <a th:href="@{/signin}" class="btn-login">Login</a>
+    </div>
+  </header>
+  <main>
+    <div class="hero-container">
+      <div class="illustration">
+        <img th:src="@{/images/singup.jpg}" alt="Students learning" width="300" height="400" />
+      </div>
+      <div class="form-box">
+        <h2>Sign Up</h2>
+        <form th:action="@{/register}" method="POST">
+          <input type="email" name="email" placeholder="yourname@email.com" required />
+          <input type="text" name="username" placeholder="yourusername" required />
+          <input type="password" name="password" placeholder="abc123" required />
+          <button type="submit" class="cta-button">Sign me up</button>
+        </form>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

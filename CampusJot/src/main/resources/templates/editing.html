@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CampusJot - Editor</title>
+
+<link rel="stylesheet" th:href="@{/css/style.css}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="alert-container">
+        <div th:if="${successMessage}" class="alert alert-success">
+            <span th:text="${successMessage}"></span>
+            <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+        <div th:if="${errorMessage}" class="alert alert-danger">
+            <span th:text="${errorMessage}"></span>
+            <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+        </div>
+    </div>
+
+    <style>
+        .alert {
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid transparent;
+            border-radius: 4px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            animation: fadeIn 0.5s ease-out;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert::before {
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            margin-right: 10px;
+        }
+        
+        .alert-success {
+            color: #155724;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+        }
+        
+        .alert-success::before {
+            content: "\f00c"; /* Checkmark icon */
+        }
+        
+        .alert-danger {
+            color: #721c24;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+        }
+        
+        .alert-danger::before {
+            content: "\f00d"; /* 'X' icon */
+        }
+        
+        .alert-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1050;
+            width: 300px;
+            max-width: 90%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .close-btn {
+            margin-left: auto;
+            font-weight: bold;
+            font-size: 20px;
+            line-height: 1;
+            color: inherit;
+            opacity: 0.6;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+        }
+        
+        .close-btn:hover {
+            opacity: 1;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+
+    <aside class="sidebar">
+        <a th:href="@{/home}" class="logo"> <span style="color: #ff4d4d;">Campus</span><span
+            style="color: #8a2be2;">Jot</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a th:href="@{/folders}" class="active">Folders</a></li>
+                <li><a th:href="@{/groups}">Groups</a></li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        <form th:action="@{/documents/save}" method="post">
+            <input type="hidden" name="documentId" th:value="${document.id}" />
+
+            <header class="top-bar">
+                <h2 class="repo-name"
+                    th:text="${groupname} + ' / ' + ${subjectName} + ' / ' + ${document.fileName}">user123
+                    / Maths / chapter1.txt</h2>
+                <div class="right">
+                    <div class="user-box">
+                        <span class="username" th:text="${session.username}">user123</span>
+                        <a th:href="@{/logout}" class="logout-btn">Log out</a>
+                    </div>
+                       <a th:href="@{/subjects/chapters/${subjectName}/{sid}(sid=${subid})}" class="logout-btn">Go Back</a>
+                    <button type="submit" class="save-btn">Save 💾</button>
+                </div>
+            </header>
+
+            <section class="code-box">
+                <textarea name="content" class="code-editor" th:text="${fileContent}">
+                    This is the editable area.
+                </textarea>
+            </section>
+        </form>
+    </main>
+</body>
+</html>

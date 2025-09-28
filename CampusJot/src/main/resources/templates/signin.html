@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - CampusJot</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+
+<div class="alert-container">
+    <div th:if="${errorMsg}" class="alert alert-danger">
+        <span th:text="${errorMsg}"></span>
+        <span class="close-btn" onclick="this.parentElement.style.display='none';">&times;</span>
+    </div>
+</div>
+
+<style>
+    .alert {
+        padding: 15px;
+        margin-bottom: 20px;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: relative;
+        animation: fadeIn 0.5s ease-out;
+        display: flex;
+        align-items: center;
+    }
+    .alert::before {
+        /* Consider adding a Font Awesome link in your <head> for these to work */
+        font-family: 'Font Awesome 6 Free';
+        font-weight: 900;
+        margin-right: 10px;
+    }
+    .alert-success {
+        color: #155724;
+        background-color: #d4edda;
+        border-color: #c3e6cb;
+    }
+    .alert-success::before {
+        content: "\f00c"; /* Checkmark icon */
+    }
+    .alert-danger {
+        color: #721c24;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+    }
+    .alert-danger::before {
+        content: "\f00d"; /* 'X' icon */
+    }
+    .alert-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 1050;
+        width: 300px;
+        max-width: 90%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .close-btn {
+        margin-left: auto;
+        font-weight: bold;
+        font-size: 20px;
+        line-height: 1;
+        color: inherit;
+        opacity: 0.6;
+        cursor: pointer;
+        transition: opacity 0.3s ease;
+    }
+    .close-btn:hover {
+        opacity: 1;
+    }
+    .action-buttons {
+        display: flex;
+        justify-content: flex-end; /* Aligns buttons to the right */
+        align-items: center;
+        gap: 10px; /* Creates space between the buttons */
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+</style>
+  <header>
+    <a th:href="@{/home}" class="logo">CampusJot</a>
+    <div class="auth-buttons">
+      <a th:href="@{/signup}" class="btn-signup">Sign Up</a>
+    </div>
+  </header>
+  <main>
+    <div class="hero-container">
+      <div class="illustration">
+        <img th:src="@{/images/login.jpg}" alt="Students collaborating" width="300" height="400" />
+      </div>
+      <div class="form-box">
+        <h2>Log In</h2>
+        <form th:action="@{/login}" method="POST">
+          <input type="text" name="username" placeholder="yourusername" required />
+          <input type="password" name="password" placeholder="abc123" required />
+          <button type="submit" class="cta-button">Log In</button>
+        </form>
+      </div>
+    </div>
+  </main>
+  </body>
+</html>

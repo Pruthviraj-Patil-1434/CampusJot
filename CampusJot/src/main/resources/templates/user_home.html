@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusJot - Home</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <a th:href="@{/home}" class="logo">CampusJot</a>
+      </aside>
+
+      <p class="welcome-text">
+        Welcome <span th:text="${session.username}">user123</span>
+      </p>
+
+      <main class="main-content">
+        <header class="top-bar">
+          <div class="user-box">
+            <span class="username" th:text="${session.username}">user123</span>
+            <a th:href="@{/logout}" class="logout-btn">Log out</a>
+          </div>
+        </header>
+
+        <section class="notes-box">
+          <p class="empty-text">You Have no Groups yet</p>
+          <p class="sub-text">Select an option below</p>
+          <div class="actions">
+            <a th:href="@{/group/joinToGroup}" class="option-btn">
+              Join a Group
+              <span class="desc"
+                >Access and Participate in an existing workspace</span
+              >
+            </a>
+            <a th:href="@{/group/creategroup}" class="option-btn">
+              Create a Group
+              <span class="desc"
+                >Start a new collaborative space for your Group</span
+              >
+            </a>
+          </div>
+        </section>
+
+        </main>
+    </div>
+  </body>
+</html>
