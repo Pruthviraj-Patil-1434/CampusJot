@@ -97,7 +97,7 @@ To get a local copy up and running, follow these simple steps.
     mvn spring-boot:run
     ```
 
-    The application will be available at `https://campusjot-ylag.onrender.com`.
+    The application will be available at `https://campusjot-ylag.onrender.com`
 
 ---
 
