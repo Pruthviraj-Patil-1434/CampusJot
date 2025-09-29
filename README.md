@@ -20,10 +20,10 @@
 
 A quick look at the user flow and interface of CampusJot.
 
-![Landing Page](CampusJot/CampusJot/outputs/home.png)
-![User Home Page](CampusJot/CampusJot/outputs/userHome.png)
-![Create Group ](CampusJot/CampusJot/outputs/createGroup.png)
-![Group Members](CampusJot/CampusJot/outputs/GroupMembers.png)
+![Landing Page](CampusJot/outputs/home.png)
+![User Home Page](CampusJot/outputs/userHome.png)
+![Create Group ](CampusJot/outputs/createGroup.png)
+![Group Members](CampusJot/outputs/GroupMembers.png)
 
 ---
 
