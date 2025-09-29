@@ -124,7 +124,7 @@ public class DocumentService {
 		Subjects subject = subjectRepository.findById(subjectId)
 	            .orElseThrow(() -> new RuntimeException("Subject not found"));
 
-	   return "/campusjot/subjects/chapters/" + subject.getSubjectName() + "/" + subjectId+"#";
+	   return "/subjects/chapters/" + subject.getSubjectName() + "/" + subjectId+"#";
 	}
 	
 	public Document getDocument(int id) {

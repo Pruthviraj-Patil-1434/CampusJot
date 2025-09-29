@@ -97,7 +97,8 @@ public class DocumentController {
 			RedirectAttributes redirectAttributes) {
 
 		String redirectUrl = documentService.url(subjectId);
-
+		
+		
 		boolean success = documentService.createFile(subjectId, fileName);
 
 		if (success) {
