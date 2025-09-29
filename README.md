@@ -21,8 +21,11 @@
 A quick look at the user flow and interface of CampusJot.
 
 ![Landing Page](CampusJot/outputs/home.png)
+
 ![User Home Page](CampusJot/outputs/userHome.png)
+
 ![Create Group ](CampusJot/outputs/createGroup.png)
+
 ![Group Members](CampusJot/outputs/GroupMembers.png)
 
 ---
@@ -94,7 +97,7 @@ To get a local copy up and running, follow these simple steps.
     mvn spring-boot:run
     ```
 
-    The application will be available at `http://localhost:8080`.
+    The application will be available at `https://campusjot-ylag.onrender.com`.
 
 ---
 
