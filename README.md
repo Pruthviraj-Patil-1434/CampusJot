@@ -11,7 +11,7 @@
 - **👥 Collaborative Groups**: Create secure workspaces for your classes. Join a group with a unique Group Name and Group ID.
 - **🗂️ Subject-Based Organization**: Organize your group's content into distinct folders for different subjects, keeping your workspace tidy and easy to navigate.
 - **✍️ In-Browser Note Editor**: Create new text files and edit them directly in the browser with real-time collaboration.
-- **📤 Upload Existing Files**: Easily upload existing documents, PDFs, and images to share with your group members.
+- **📤 Upload Existing Files**: Easily upload existing text documents,share with your group members.
 - **🔐 Secure Verification System**: User accounts are protected by email and password verification, ensuring that only registered users can access the platform.
 
 ---
@@ -107,9 +107,3 @@ To get a local copy up and running, follow these simple steps.
 2.  **Create or Join a Group**: After logging in, you can either create a new collaborative group and invite others or join an existing group using its name and ID.
 3.  **Organize Content**: Inside a group, create folders for different subjects to keep notes organized.
 4.  **Add and Collaborate**: Upload existing notes or create new ones in the text editor. Work with your group members in real-time.
-
----
-
-## 👨‍💻 Author
-
-**Team Phoenix**
