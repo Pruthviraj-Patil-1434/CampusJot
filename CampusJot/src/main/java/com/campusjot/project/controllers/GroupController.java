@@ -77,6 +77,7 @@ public class GroupController {
 
 		} catch (Exception e) {
 			System.out.println("Can not create Group");
+			System.out.println(e.getMessage());
 			redirectAttributes.addFlashAttribute("errorMessage", "Error creating group: " + e.getMessage());
 			return "create-group"; // Redirect back to the form on error
 		}
