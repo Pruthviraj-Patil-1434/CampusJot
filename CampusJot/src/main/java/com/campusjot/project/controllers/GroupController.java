@@ -56,7 +56,7 @@ public class GroupController {
 			// Handle case where user is not logged in
 			return "signin";
 		}
-
+		
 		// 1. Find the full Client object for the owner
 		Client owner = clientRepo.findByUsername(uname)
 				.orElseThrow(() -> new RuntimeException("Owner not found: " + uname));
@@ -76,6 +76,7 @@ public class GroupController {
 			return "group"; // Redirect on success
 
 		} catch (Exception e) {
+			System.out.println("Can not create Group");
 			redirectAttributes.addFlashAttribute("errorMessage", "Error creating group: " + e.getMessage());
 			return "create-group"; // Redirect back to the form on error
 		}

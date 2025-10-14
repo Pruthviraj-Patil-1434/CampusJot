@@ -38,6 +38,7 @@ public class GroupService {
 	@Value("${supabase.service_role_key}")
 	private String API_KEY;
 
+	
 	public Group createGroup(String groupName, Client owner, List<String> contributorEmails) {
 		// 1. Generate a random code and create the final group identifier
 		String randomCode = generateRandomCode(4);
